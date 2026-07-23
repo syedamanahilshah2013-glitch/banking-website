@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Banking Website — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">DemoBank <span class="sub">— Educational Project Only</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Demo Login</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="cards.html">Cards</a>
+      <a href="transfer.html">Transfer</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Demo Banking Website</h1>
+      <p class="lead">Educational, fictional, and clearly labeled. This site simulates a modern banking UI — it does not collect or process real personal data.</p>
+      <div class="actions">
+        <a class="btn primary" id="use-demo" href="dashboard.html">Use Demo Account</a>
+        <a class="btn outline" href="login.html">Demo Login</a>
+      </div>
+      <p class="note">Tip: For development, open Developer Tools to see localStorage under key "demoBank_user".</p>
+    </section>
+
+    <section class="features">
+      <article>
+        <h3>Fake Accounts</h3>
+        <p>Sample account data is randomly generated and stored in your browser only.</p>
+      </article>
+      <article>
+        <h3>Simulation Only</h3>
+        <p>Transfers and actions only modify local demo state — no external network calls.</p>
+      </article>
+      <article>
+        <h3>Black & Gold Theme</h3>
+        <p>Luxury mockup for portfolio and learning.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>DemoBank — Educational Project Only. No real banking functionality.</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Ensure demo data is generated before navigating to dashboard.
+    document.getElementById('use-demo').addEventListener('click', (e) => {
+      e.preventDefault();
+      generateDemoData('DemoUser');
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>

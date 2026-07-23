@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Banking Website — Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">DemoBank <span class="sub">— Educational Project Only</span></div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card center-card">
+      <h2>Profile (Fictional)</h2>
+      <p class="muted">This is fictional demo data. Do not enter real personal information.</p>
+
+      <form id="profileForm">
+        <label for="fullname">Full name</label>
+        <input id="fullname" placeholder="Alex Johnson">
+
+        <label for="phone">Phone (demo)</label>
+        <input id="phone" placeholder="(555) 555-5555">
+
+        <label for="email">Email (demo)</label>
+        <input id="email" placeholder="alex@example.com">
+
+        <div class="form-row">
+          <button type="submit" class="btn primary">Save (Local)</button>
+          <a class="btn outline" href="dashboard.html">Close</a>
+        </div>
+      </form>
+
+      <p id="profileMsg" class="muted"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>DemoBank — Educational Project Only.</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    loadProfilePage();
+    document.getElementById('profileForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fullname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      saveProfile({name, phone, email});
+      const m = document.getElementById('profileMsg');
+      m.textContent = 'Saved to demo profile (local only).';
+      m.style.color = '#ffd700';
+    });
+  </script>
+</body>
+</html>

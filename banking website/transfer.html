@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Banking Website — Transfer (Simulation)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">DemoBank <span class="sub">— Educational Project Only</span></div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="transactions.html">Transactions</a>
+      <a href="transfer.html">Transfer</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card center-card">
+      <h2>Make a Transfer (Simulation)</h2>
+      <p class="muted">This is a simulated transfer that updates your local demo balance and transaction list only.</p>
+
+      <form id="transferForm">
+        <label for="to">To (demo recipient)</label>
+        <input id="to" placeholder="e.g., Jordan Demo" required>
+
+        <label for="amount">Amount (USD)</label>
+        <input id="amount" type="number" step="0.01" min="0.01" placeholder="100.00" required>
+
+        <label for="note">Note</label>
+        <input id="note" placeholder="optional">
+
+        <div class="form-row">
+          <button type="submit" class="btn primary">Send (Simulated)</button>
+          <a class="btn outline" href="dashboard.html">Cancel</a>
+        </div>
+      </form>
+
+      <p id="transferResult" class="muted"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>DemoBank — Educational Project Only.</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('transferForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const to = document.getElementById('to').value.trim() || 'Demo Recipient';
+      const amount = parseFloat(document.getElementById('amount').value) || 0;
+      const note = document.getElementById('note').value.trim();
+      const result = doTransfer({to, amount, note});
+      const el = document.getElementById('transferResult');
+      if (result.success) {
+        el.textContent = 'Transfer simulated. New balance: ' + result.newBalance;
+        el.style.color = '#ffd700';
+        setTimeout(() => window.location.href = 'dashboard.html', 1200);
+      } else {
+        el.textContent = 'Error: ' + result.message;
+        el.style.color = '#ff6b6b';
+      }
+    });
+  </script>
+</body>
+</html>

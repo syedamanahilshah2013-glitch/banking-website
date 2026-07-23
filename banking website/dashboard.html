@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Banking Website — Demo Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">DemoBank <span class="sub">— Educational Project Only</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Demo Login</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card center-card">
+      <h2>Demo Login</h2>
+      <p class="muted">Enter a demo username (do not use real personal info). This creates a fictional account in your browser only.</p>
+
+      <form id="loginForm">
+        <label for="username">Demo username</label>
+        <input id="username" name="username" placeholder="e.g., alex_demo" required>
+        <div class="form-row">
+          <button type="submit" class="btn primary">Start Demo</button>
+          <a class="btn outline" href="index.html">Back</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>DemoBank — Educational Project Only.</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = document.getElementById('username').value.trim() || 'DemoUser';
+      generateDemoData(u);
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>

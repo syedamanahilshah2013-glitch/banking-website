@@ -1,0 +1,70 @@
+:root{
+  --bg:#0b0b0b;
+  --panel:#111;
+  --muted:#bdbdbd;
+  --gold:#d4af37;
+  --accent:#ffd700;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, #070707 100%);color:#fff}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1000px;margin:28px auto;padding:20px}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:transparent;position:sticky;top:0}
+.brand{font-weight:700;font-size:1.1rem;color:var(--gold)}
+.brand .sub{font-weight:400;font-size:0.8rem;color:var(--muted);margin-left:8px}
+
+nav a{margin:0 10px;color:var(--muted);font-size:0.95rem}
+nav a:hover{color:var(--accent)}
+.nav-actions{display:flex;align-items:center}
+
+.hero{padding:40px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.hero h1{font-size:2rem;margin:0 0 8px;color:var(--gold)}
+.lead{color:var(--muted);margin:0 0 18px}
+.actions{margin:16px 0}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-weight:600}
+.btn.primary{background:linear-gradient(90deg,var(--gold),var(--accent));color:#000}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.btn.small{padding:6px 10px;font-size:0.85rem}
+
+.features{display:flex;gap:18px;margin-top:22px}
+.features article{flex:1;padding:14px;background:var(--glass);border-radius:10px}
+.note{color:var(--muted);margin-top:12px}
+.site-footer{text-align:center;padding:18px;color:var(--muted)}
+
+.center-card{max-width:700px;margin:30px auto;padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px}
+.card{background:var(--panel);padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.6)}
+
+.account-overview{margin:20px 0}
+.account-card{display:flex;justify-content:space-between;align-items:center;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:inset 0 -1px 0 rgba(255,255,255,0.02)}
+.acct-name{font-weight:700;font-size:1.1rem}
+.acct-number{color:var(--muted);margin-top:6px}
+.balance{font-size:1.6rem;color:var(--gold);font-weight:800}
+
+.tx-list{list-style:none;padding:0;margin:12px 0}
+.tx-list li{display:flex;justify-content:space-between;padding:12px;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.tx-list li span.muted{color:var(--muted);font-size:0.9rem}
+
+.filters{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.form-row{display:flex;gap:8px;margin-top:12px}
+
+.cards-grid{display:flex;gap:18px;flex-wrap:wrap}
+.card-card{width:320px;height:180px;border-radius:14px;padding:18px;background:linear-gradient(135deg,#0e0b07,#271b08);color:#fff;position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.card-card.alt{background:linear-gradient(135deg,#1a0813,#261026)}
+.chip{width:44px;height:30px;background:linear-gradient(90deg,#ffd,#b77);border-radius:4px;margin-bottom:18px;opacity:0.8}
+.card-number{font-weight:700;letter-spacing:2px;margin-top:12px}
+.card-footer{display:flex;justify-content:space-between;margin-top:28px;color:var(--muted)}
+
+.muted{color:var(--muted)}
+.accent{color:var(--gold);font-weight:700}
+
+@media (max-width:760px){
+  .features{flex-direction:column}
+  nav{display:none}
+  .container{padding:14px}
+  .card-card{width:100%}
+}
